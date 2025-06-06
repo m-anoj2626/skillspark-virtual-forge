@@ -7,7 +7,7 @@ import SimulationsSection from '@/components/SimulationsSection';
 
 const Index = () => {
   return (
-    <div className="min-h-screen bg-black">
+    <div className="min-h-screen bg-white">
       <Navbar />
       <Hero />
       <Features />

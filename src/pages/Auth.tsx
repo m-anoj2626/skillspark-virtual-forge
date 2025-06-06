@@ -6,16 +6,7 @@ import { Input } from '@/components/ui/input';
 import { Label } from '@/components/ui/label';
 import { Badge } from '@/components/ui/badge';
 import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs';
-import { 
-  Zap, 
-  Mail, 
-  Lock, 
-  User, 
-  Chrome, 
-  Linkedin,
-  ArrowRight,
-  Shield
-} from 'lucide-react';
+import { Zap, Mail, Lock, User, Chrome, Linkedin } from 'lucide-react';
 
 const Auth = () => {
   const [isLoading, setIsLoading] = useState(false);
@@ -28,223 +19,179 @@ const Auth = () => {
   };
 
   return (
-    <div className="min-h-screen bg-cyber-grid flex items-center justify-center p-4 relative overflow-hidden">
+    <div className="min-h-screen bg-gradient-to-br from-purple-50 via-blue-50 to-cyan-50 flex items-center justify-center p-4">
       {/* Background Elements */}
-      <div className="absolute inset-0 z-0">
-        <div className="absolute top-1/4 right-1/4 w-64 h-64 bg-pink-500/30 rounded-full mix-blend-multiply filter blur-3xl"></div>
-        <div className="absolute bottom-1/4 left-1/4 w-80 h-80 bg-orange-500/20 rounded-full mix-blend-multiply filter blur-3xl"></div>
+      <div className="absolute inset-0">
+        <div className="absolute top-20 left-10 w-72 h-72 bg-purple-300 rounded-full mix-blend-multiply filter blur-xl opacity-70 animate-pulse"></div>
+        <div className="absolute bottom-20 right-10 w-72 h-72 bg-yellow-300 rounded-full mix-blend-multiply filter blur-xl opacity-70 animate-pulse animation-delay-2000"></div>
       </div>
 
-      {/* Dynamic Grid Lines */}
-      <div className="absolute inset-0 z-0 opacity-20">
-        <div className="absolute inset-0" 
-          style={{
-            backgroundSize: '50px 50px',
-            backgroundImage: 'linear-gradient(0deg, rgba(255, 0, 110, 0.1) 1px, transparent 1px), linear-gradient(90deg, rgba(255, 0, 110, 0.1) 1px, transparent 1px)',
-            backgroundPosition: 'center center'
-          }}>
-        </div>
-      </div>
-
-      <div className="relative z-10 w-full max-w-lg">
+      <div className="relative z-10 w-full max-w-md">
         {/* Logo */}
-        <div className="flex flex-col items-center justify-center mb-8">
-          <div className="flex items-center justify-center space-x-4 mb-2">
-            <div className="w-14 h-14 bg-gradient-to-r from-pink-500 to-orange-500 clip-path-polygon relative flex items-center justify-center">
-              <div className="absolute inset-1 bg-black flex items-center justify-center">
-                <Zap className="w-8 h-8 text-pink-500" />
-              </div>
+        <div className="text-center mb-8">
+          <div className="flex items-center justify-center space-x-3 mb-4">
+            <div className="w-12 h-12 bg-gradient-to-r from-purple-600 to-blue-600 rounded-xl flex items-center justify-center">
+              <Zap className="w-7 h-7 text-white" />
             </div>
-            <div>
-              <h1 className="text-4xl font-bold text-neon font-rajdhani tracking-wider">SKILLFORGE</h1>
-              <Badge className="text-xs bg-gradient-to-r from-pink-500 to-orange-500 text-black border-0 font-bold">
-                ALPHA ACCESS
-              </Badge>
-            </div>
+            <span className="text-3xl font-bold text-gradient-purple">SkillSpark</span>
           </div>
-          <p className="text-gray-400 font-mono text-sm mt-2">SECURE AUTHENTICATION PORTAL</p>
+          <p className="text-gray-600">Join the future of career preparation</p>
         </div>
 
-        <Card className="aggressive-card border-0 shadow-2xl overflow-visible">
-          <CardHeader className="text-center border-b border-pink-500/30 pb-4">
-            <CardTitle className="text-2xl font-bold text-white font-rajdhani tracking-wider">ACCESS CONTROL</CardTitle>
+        <Card className="glass-card border-0 shadow-2xl">
+          <CardHeader className="text-center pb-4">
+            <CardTitle className="text-2xl font-bold">Welcome</CardTitle>
+            <p className="text-gray-600">Get started with your account</p>
           </CardHeader>
 
-          <CardContent className="pt-6">
+          <CardContent>
             <Tabs defaultValue="login" className="w-full">
-              <TabsList className="grid w-full grid-cols-2 mb-8 bg-black/50 border border-pink-500/30">
-                <TabsTrigger 
-                  value="login" 
-                  className="font-rajdhani tracking-wider font-bold data-[state=active]:bg-gradient-to-r from-pink-500/20 to-orange-500/20 data-[state=active]:text-pink-400"
-                >
-                  SIGN IN
-                </TabsTrigger>
-                <TabsTrigger 
-                  value="register" 
-                  className="font-rajdhani tracking-wider font-bold data-[state=active]:bg-gradient-to-r from-pink-500/20 to-orange-500/20 data-[state=active]:text-pink-400"
-                >
-                  REGISTER
-                </TabsTrigger>
+              <TabsList className="grid w-full grid-cols-2 mb-6">
+                <TabsTrigger value="login">Sign In</TabsTrigger>
+                <TabsTrigger value="register">Sign Up</TabsTrigger>
               </TabsList>
 
-              <TabsContent value="login" className="animate-fade-in-up">
-                <form onSubmit={handleSubmit} className="space-y-5">
+              <TabsContent value="login">
+                <form onSubmit={handleSubmit} className="space-y-4">
                   <div className="space-y-2">
-                    <Label htmlFor="email" className="text-white font-mono text-xs tracking-wider">EMAIL</Label>
+                    <Label htmlFor="email">Email</Label>
                     <div className="relative">
-                      <Mail className="absolute left-3 top-3 h-5 w-5 text-pink-500" />
+                      <Mail className="absolute left-3 top-3 h-4 w-4 text-gray-400" />
                       <Input 
                         id="email" 
                         type="email" 
-                        placeholder="your-email@domain.com"
-                        className="pl-11 bg-black/70 border-pink-500/50 focus:border-pink-500 h-12 font-mono text-white"
+                        placeholder="Enter your email"
+                        className="pl-10"
                         required
                       />
                     </div>
                   </div>
 
                   <div className="space-y-2">
-                    <Label htmlFor="password" className="text-white font-mono text-xs tracking-wider">PASSWORD</Label>
+                    <Label htmlFor="password">Password</Label>
                     <div className="relative">
-                      <Lock className="absolute left-3 top-3 h-5 w-5 text-pink-500" />
+                      <Lock className="absolute left-3 top-3 h-4 w-4 text-gray-400" />
                       <Input 
                         id="password" 
                         type="password" 
-                        placeholder="••••••••••••"
-                        className="pl-11 bg-black/70 border-pink-500/50 focus:border-pink-500 h-12 font-mono text-white"
+                        placeholder="Enter your password"
+                        className="pl-10"
                         required
                       />
                     </div>
                   </div>
 
-                  <div className="flex justify-between items-center">
-                    <div className="flex items-center space-x-2">
-                      <input type="checkbox" id="remember" className="w-4 h-4 accent-pink-500" />
-                      <label htmlFor="remember" className="text-gray-400 text-xs font-mono">REMEMBER ME</label>
-                    </div>
-                    <a href="#" className="text-pink-500 text-xs font-mono hover:text-pink-400 transition-colors">FORGOT PASSWORD?</a>
-                  </div>
-
-                  <button 
+                  <Button 
                     type="submit" 
-                    className="btn-aggressive w-full mt-6 group"
+                    className="w-full bg-gradient-to-r from-purple-600 to-blue-600 hover:from-purple-700 hover:to-blue-700"
                     disabled={isLoading}
                   >
-                    <span className="flex items-center justify-center">
-                      {isLoading ? "AUTHENTICATING..." : "ACCESS SYSTEM"}
-                      <ArrowRight className="ml-2 h-5 w-5 group-hover:translate-x-1 transition-transform" />
-                    </span>
-                  </button>
+                    {isLoading ? "Signing in..." : "Sign In"}
+                  </Button>
                 </form>
               </TabsContent>
 
-              <TabsContent value="register" className="animate-fade-in-up">
-                <form onSubmit={handleSubmit} className="space-y-5">
+              <TabsContent value="register">
+                <form onSubmit={handleSubmit} className="space-y-4">
                   <div className="space-y-2">
-                    <Label htmlFor="name" className="text-white font-mono text-xs tracking-wider">FULL NAME</Label>
+                    <Label htmlFor="name">Full Name</Label>
                     <div className="relative">
-                      <User className="absolute left-3 top-3 h-5 w-5 text-pink-500" />
+                      <User className="absolute left-3 top-3 h-4 w-4 text-gray-400" />
                       <Input 
                         id="name" 
                         type="text" 
-                        placeholder="Your Full Name"
-                        className="pl-11 bg-black/70 border-pink-500/50 focus:border-pink-500 h-12 font-mono text-white"
+                        placeholder="Enter your full name"
+                        className="pl-10"
                         required
                       />
                     </div>
                   </div>
 
                   <div className="space-y-2">
-                    <Label htmlFor="register-email" className="text-white font-mono text-xs tracking-wider">EMAIL</Label>
+                    <Label htmlFor="register-email">Email</Label>
                     <div className="relative">
-                      <Mail className="absolute left-3 top-3 h-5 w-5 text-pink-500" />
+                      <Mail className="absolute left-3 top-3 h-4 w-4 text-gray-400" />
                       <Input 
                         id="register-email" 
                         type="email" 
-                        placeholder="your-email@domain.com"
-                        className="pl-11 bg-black/70 border-pink-500/50 focus:border-pink-500 h-12 font-mono text-white"
+                        placeholder="Enter your email"
+                        className="pl-10"
                         required
                       />
                     </div>
                   </div>
 
                   <div className="space-y-2">
-                    <Label htmlFor="register-password" className="text-white font-mono text-xs tracking-wider">PASSWORD</Label>
+                    <Label htmlFor="register-password">Password</Label>
                     <div className="relative">
-                      <Lock className="absolute left-3 top-3 h-5 w-5 text-pink-500" />
+                      <Lock className="absolute left-3 top-3 h-4 w-4 text-gray-400" />
                       <Input 
                         id="register-password" 
                         type="password" 
-                        placeholder="••••••••••••"
-                        className="pl-11 bg-black/70 border-pink-500/50 focus:border-pink-500 h-12 font-mono text-white"
+                        placeholder="Create a password"
+                        className="pl-10"
                         required
                       />
                     </div>
                   </div>
 
-                  <button 
+                  <Button 
                     type="submit" 
-                    className="btn-aggressive w-full mt-6 group"
+                    className="w-full bg-gradient-to-r from-purple-600 to-blue-600 hover:from-purple-700 hover:to-blue-700"
                     disabled={isLoading}
                   >
-                    <span className="flex items-center justify-center">
-                      {isLoading ? "CREATING ACCESS..." : "CREATE ACCOUNT"}
-                      <ArrowRight className="ml-2 h-5 w-5 group-hover:translate-x-1 transition-transform" />
-                    </span>
-                  </button>
+                    {isLoading ? "Creating account..." : "Create Account"}
+                  </Button>
                 </form>
               </TabsContent>
             </Tabs>
 
             {/* Social Login */}
-            <div className="mt-8">
+            <div className="mt-6">
               <div className="relative">
                 <div className="absolute inset-0 flex items-center">
-                  <span className="w-full border-t border-pink-500/30" />
+                  <span className="w-full border-t" />
                 </div>
-                <div className="relative flex justify-center">
-                  <span className="bg-black px-4 text-xs text-gray-400 font-mono">ALTERNATIVE ACCESS</span>
+                <div className="relative flex justify-center text-xs uppercase">
+                  <span className="bg-white px-2 text-gray-500">Or continue with</span>
                 </div>
               </div>
 
-              <div className="grid grid-cols-2 gap-4 mt-6">
-                <button className="flex items-center justify-center space-x-3 px-4 py-3 bg-black/50 border border-pink-500/30 hover:bg-pink-500/10 transition-colors">
-                  <Chrome className="h-5 w-5 text-pink-500" />
-                  <span className="text-sm font-mono text-white">GOOGLE</span>
-                </button>
-                <button className="flex items-center justify-center space-x-3 px-4 py-3 bg-black/50 border border-pink-500/30 hover:bg-pink-500/10 transition-colors">
-                  <Linkedin className="h-5 w-5 text-pink-500" />
-                  <span className="text-sm font-mono text-white">LINKEDIN</span>
-                </button>
+              <div className="grid grid-cols-2 gap-3 mt-4">
+                <Button variant="outline" className="w-full">
+                  <Chrome className="mr-2 h-4 w-4" />
+                  Google
+                </Button>
+                <Button variant="outline" className="w-full">
+                  <Linkedin className="mr-2 h-4 w-4" />
+                  LinkedIn
+                </Button>
               </div>
             </div>
 
-            {/* Security Info */}
-            <div className="mt-8 p-4 border border-pink-500/30 bg-black/50">
-              <div className="flex items-center mb-3">
-                <Shield className="h-5 w-5 text-pink-500 mr-3" />
-                <p className="text-sm font-bold text-white font-rajdhani">ELITE ACCESS BENEFITS</p>
-              </div>
-              <div className="space-y-2">
-                <div className="flex items-center text-xs text-gray-300 font-mono">
-                  <div className="w-1 h-1 bg-pink-500 mr-2"></div>
-                  Access to 500+ combat simulations
+            {/* Benefits */}
+            <div className="mt-6 p-4 bg-purple-50 rounded-lg">
+              <p className="text-sm font-medium text-purple-800 mb-2">What you'll get:</p>
+              <div className="space-y-1">
+                <div className="flex items-center text-sm text-purple-700">
+                  <Badge variant="secondary" className="w-2 h-2 rounded-full mr-2 bg-purple-200"></Badge>
+                  Access to 500+ simulations
                 </div>
-                <div className="flex items-center text-xs text-gray-300 font-mono">
-                  <div className="w-1 h-1 bg-pink-500 mr-2"></div>
-                  Military-grade skill certification
+                <div className="flex items-center text-sm text-purple-700">
+                  <Badge variant="secondary" className="w-2 h-2 rounded-full mr-2 bg-purple-200"></Badge>
+                  Industry-recognized certificates
                 </div>
-                <div className="flex items-center text-xs text-gray-300 font-mono">
-                  <div className="w-1 h-1 bg-pink-500 mr-2"></div>
-                  Advanced analytics dashboard
+                <div className="flex items-center text-sm text-purple-700">
+                  <Badge variant="secondary" className="w-2 h-2 rounded-full mr-2 bg-purple-200"></Badge>
+                  Portfolio building tools
                 </div>
               </div>
             </div>
           </CardContent>
         </Card>
 
-        <p className="text-center text-xs text-gray-400 mt-6 font-mono">
-          SECURITY PROTOCOL: BY ACCESSING THIS SYSTEM YOU AGREE TO OUR <a href="#" className="text-pink-500 hover:text-pink-400">TERMS OF SERVICE</a>
+        <p className="text-center text-sm text-gray-500 mt-6">
+          By signing up, you agree to our Terms of Service and Privacy Policy
         </p>
       </div>
     </div>
